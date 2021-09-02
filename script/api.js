@@ -14,15 +14,18 @@ const visibility = (ID, displayStyle) =>{
 }
 
 // book-archive api 
-const booksList = (searchText)=>{
+const booksList = (searchText)=>{   
+    if(searchText ==''){
+        alert("Please enter a valid book's name");
+    }
     let url =`https://openlibrary.org/search.json?q=${searchText}`
     fetch(url)
     .then(response => response.json())
-    .then(data => displayBooks(data.docs))
+    .then(data => displayBooks(data.docs))   
 }
 
 const displayBooks = (book) =>{
-    console.log(book)
+    console.log(book);
     let searchResult = book.length;
     document.getElementById('counter').innerText = `${searchResult}`;
     let booksDiv = document.getElementById('booksList');
