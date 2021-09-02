@@ -1,0 +1,38 @@
+#booksList{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.single-book{
+    border: 2px solid rgba(128, 128, 128, 0.144);
+    margin: 15px;
+    border-radius: 10px;
+    padding: 25px 15px 20px 25px;
+    box-shadow: 0 0 10px 5px rgba(128, 128, 128, 0.671);
+}
+.single-book>img{
+    width: 95%;
+    display: block;
+}
+.empty-result{
+    text-align: center;
+    width: 80vw;
+}
+#spinner{
+    display: none;
+}
+#search-count{
+    display: none;
+}
+/* media query */
+@media screen and (max-width:768px){
+    #booksList{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width:550px){
+    #booksList{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
