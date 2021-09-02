@@ -21,19 +21,19 @@ const booksList = (searchText)=>{
     let url =`https://openlibrary.org/search.json?q=${searchText}`
     fetch(url)
     .then(response => response.json())
-    .then(data => displayBooks(data.docs))   
+    .then(data => displayBooks(data))   
 }
 
 const displayBooks = (book) =>{
-    console.log(book);
-    let searchResult = book.length;
+    let searchResult = book.numFound;
+    console.log(searchResult);
     document.getElementById('counter').innerText = `${searchResult}`;
     let booksDiv = document.getElementById('booksList');
     booksDiv.textContent = '';
     if(searchResult === 0){
         booksDiv.innerHTML =`<h2 class="text-danger empty-result"> No result found </h2>`;
     }
-    book?.forEach(bookDetails => {
+    book.docs?.forEach(bookDetails => {
         let img = bookDetails.cover_i;
         let bookDiv = document.createElement('div');
         bookDiv.classList.add('single-book');
